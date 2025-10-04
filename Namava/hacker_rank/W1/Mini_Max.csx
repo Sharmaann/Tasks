@@ -27,7 +27,8 @@ class Result
     public static void miniMaxSum(List<int> arr)
     {
         long sum = 0;
-        int max = -1, min = (int)1e9 + 1;
+        int max = -1;
+        int min = Int32.MaxValue;
 
         foreach (int number in arr){
             if (number < min)
