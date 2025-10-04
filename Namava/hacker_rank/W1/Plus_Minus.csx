@@ -28,16 +28,19 @@ class Result
 
     public static void plusMinus(List<int> arr){
         int arrLength = arr.Count;
-        float positiveCount = 0, negativeCount = 0, zeroCount = 0;
+        int positiveCount = 0;
+        int negativeCount = 0;
+        int zeroCount = 0;
+        
         foreach (int item in arr){
             positiveCount += Convert.ToInt32(item > 0);
             negativeCount += Convert.ToInt32(item < 0);
             zeroCount += Convert.ToInt32(item == 0);
         }
 
-        float positivePercentage = positiveCount / arrLength,
-              negetivePercentage = negativeCount / arrLength,
-              zeroPercentage = zeroCount / arrLength;
+        float positivePercentage = (float) positiveCount / arrLength;
+        float negetivePercentage = (float) negativeCount / arrLength;
+        float zeroPercentage = (float) zeroCount / arrLength;
 
         string formatString = "{0:F6}\n{1:F6}\n{2:F6}";
         string res = String.Format(formatString, positivePercentage, negetivePercentage, zeroPercentage);
