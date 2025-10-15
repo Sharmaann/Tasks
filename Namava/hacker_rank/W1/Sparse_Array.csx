@@ -33,19 +33,19 @@ class Result
             mapStringsCount[stringItem] = stringCount + 1;
         }
 
-        List <int> res = new List <int>();
+        var result = new List <int>();
         foreach (string queryStrings in queries){
-            res.Add(mapStringsCount.GetValueOrDefault(queryStrings, 0));
+            result.Add(mapStringsCount.GetValueOrDefault(queryStrings, 0));
         }
 
-        return res;
+        return result;
     }
 
 }
 
 int stringsCount = Convert.ToInt32(Console.ReadLine().Trim());
 
-List<string> strings = new List<string>();
+var strings = new List<string>();
 
 for (int i = 0; i < stringsCount; i++)
 {
@@ -55,7 +55,7 @@ for (int i = 0; i < stringsCount; i++)
 
 int queriesCount = Convert.ToInt32(Console.ReadLine().Trim());
 
-List<string> queries = new List<string>();
+var queries = new List<string>();
 
 for (int i = 0; i < queriesCount; i++)
 {
@@ -63,7 +63,7 @@ for (int i = 0; i < queriesCount; i++)
     queries.Add(queriesItem);
 }
 
-List<int> res = Result.matchingStrings(strings, queries);
-foreach (int count in res){
+List<int> result = Result.matchingStrings(strings, queries);
+foreach (int count in result){
     Console.WriteLine(count.ToString());
 }
