@@ -29,13 +29,12 @@ class Result
         string hour = s.Substring(0, 2);
         string minute = s.Substring(3, 2);
         string second = s.Substring(6, 2);
-        if (timeSpecifier == "PM"){
-            if (hour != "12")
-                hour = (Convert.ToInt32(hour) + 12).ToString();
-        }
-        else if (hour == "12"){ // AM
+
+        if (timeSpecifier == "PM" && hour != "12")
+            hour = (Convert.ToInt32(hour) + 12).ToString();
+        if (timeSpecifier == "AM" && hour == "12")
             hour = "00";
-        }
+
         string res = $"{hour}:{minute}:{second}";
         return res;
     }
