@@ -13,7 +13,8 @@
             //TimeConversion.Run();
             //LonelyInteger.Run();
             //GradingStudents.Run();
-            FlippingBits.Run();
+            //FlippingBits.Run();
+            DiagonalDifference.Run();
         }
     }
 }
