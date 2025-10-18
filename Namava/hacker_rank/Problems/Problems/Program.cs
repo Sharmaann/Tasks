@@ -12,7 +12,8 @@
             //SparseArray.Run();
             //TimeConversion.Run();
             //LonelyInteger.Run();
-            GradingStudents.Run();
+            //GradingStudents.Run();
+            FlippingBits.Run();
         }
     }
 }
