@@ -1,6 +1,4 @@
-
-// https://www.hackerrank.com/challenges/three-month-preparation-kit-plus-minus/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
-
+// https://www.hackerrank.com/challenges/three-month-preparation-kit-plus-minus/problem
 
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
@@ -16,17 +14,9 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
-class Result
+class PlusMinus
 {
-
-    /*
-     * Complete the 'plusMinus' function below.
-     *
-     * The function accepts INTEGER_ARRAY arr as parameter.
-     */
-     
-
-    public static void plusMinus(List<int> arr){
+    public static void CalculatePlusMinus(List<int> arr){
         int arrLength = arr.Count;
         int positiveCount = 0;
         int negativeCount = 0;
@@ -39,17 +29,22 @@ class Result
         }
 
         float positivePercentage = (float) positiveCount / arrLength;
-        float negetivePercentage = (float) negativeCount / arrLength;
+        float negativePercentage = (float) negativeCount / arrLength;
         float zeroPercentage = (float) zeroCount / arrLength;
 
         string formatString = "{0:F6}\n{1:F6}\n{2:F6}";
-        string res = String.Format(formatString, positivePercentage, negetivePercentage, zeroPercentage);
+        string res = String.Format(formatString, positivePercentage, negativePercentage, zeroPercentage);
         Console.WriteLine(res);
     }
+
+    public static void Run()
+    {
+
+        int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+        List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
+
+        PlusMinus.CalculatePlusMinus(arr);
+
+    }
 }
-
-int n = Convert.ToInt32(Console.ReadLine().Trim());
-
-List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
-
-Result.plusMinus(arr);

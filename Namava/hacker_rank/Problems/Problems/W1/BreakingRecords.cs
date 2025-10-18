@@ -1,4 +1,5 @@
-// https://www.hackerrank.com/challenges/three-month-preparation-kit-breaking-best-and-worst-records/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
+// https://www.hackerrank.com/challenges/three-month-preparation-kit-breaking-best-and-worst-records/problem
+
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections;
@@ -13,17 +14,9 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
-class Result
+class BreakingRecords
 {
-
-    /*
-     * Complete the 'breakingRecords' function below.
-     *
-     * The function is expected to return an INTEGER_ARRAY.
-     * The function accepts INTEGER_ARRAY scores as parameter.
-     */
-
-    public static List<int> breakingRecords(List<int> scores)
+    public static List<int> CountBreakingRecords(List<int> scores)
     {
         int max = Int32.MinValue;
         int min = Int32.MaxValue;
@@ -46,12 +39,15 @@ class Result
         return res;
     }
 
+    public static void Run()
+    {
+        int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+        List<int> scores = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(scoresTemp => Convert.ToInt32(scoresTemp)).ToList();
+
+        List<int> result = BreakingRecords.CountBreakingRecords(scores);
+
+        Console.WriteLine(String.Join(" ", result));
+    }
+
 }
-
-int n = Convert.ToInt32(Console.ReadLine().Trim());
-
-List<int> scores = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(scoresTemp => Convert.ToInt32(scoresTemp)).ToList();
-
-List<int> result = Result.breakingRecords(scores);
-
-Console.WriteLine(String.Join(" ", result));
