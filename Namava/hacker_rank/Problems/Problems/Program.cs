@@ -17,7 +17,8 @@
             //DiagonalDifference.Run();
             //CountingSort1.Run();
             //CountingValleys.Run();
-            Pangrams.Run();
+            //Pangrams.Run();
+            MarsExploration.Run();
         }
     }
 }
