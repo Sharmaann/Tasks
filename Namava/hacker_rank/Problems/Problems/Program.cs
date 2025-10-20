@@ -15,7 +15,8 @@
             //GradingStudents.Run();
             //FlippingBits.Run();
             //DiagonalDifference.Run();
-            CountingSort1.Run();
+            //CountingSort1.Run();
+            CountingValleys.Run();
         }
     }
 }
