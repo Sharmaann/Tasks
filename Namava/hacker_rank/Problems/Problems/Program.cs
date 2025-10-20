@@ -16,7 +16,8 @@
             //FlippingBits.Run();
             //DiagonalDifference.Run();
             //CountingSort1.Run();
-            CountingValleys.Run();
+            //CountingValleys.Run();
+            Pangrams.Run();
         }
     }
 }
