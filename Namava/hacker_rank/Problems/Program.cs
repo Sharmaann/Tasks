@@ -6,7 +6,8 @@
 
         static void Main(string [] args)
         {
-            PermutingTwoArrays.Run();
+            // PermutingTwoArrays.Run();
+            SubarrayDivision2.Run();
         }
     }
 }
