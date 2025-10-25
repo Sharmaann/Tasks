@@ -7,7 +7,8 @@
         static void Main(string [] args)
         {
             // PermutingTwoArrays.Run();
-            SubarrayDivision2.Run();
+            // SubarrayDivision2.Run();
+            XORString3.Run();
         }
     }
 }
