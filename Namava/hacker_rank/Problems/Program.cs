@@ -9,7 +9,8 @@
             // PermutingTwoArrays.Run();
             // SubarrayDivision2.Run();
             // XORString3.Run();
-            SalesByMatch.Run();
+            // SalesByMatch.Run();
+            MigratoryBirds.Run();
         }
     }
 }
