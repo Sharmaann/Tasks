@@ -1,0 +1,100 @@
+- تفاوت stack و heap:
+	- memory capacity
+	- memory speed
+	
+	
+- لیست همه valueType ها و referenceType ها در #C
+
+- چرا reference type ها address رو توی stack میذارن ولی value رو توی heap
+
+
+
+-----------------------------------------------------------------
+
+
+- Memory segments:
+
+	1. stack segment
+		- stores: 
+			1. local variables
+			2. function parameters
+			3. return addresses
+		
+		- fixed size during runtime
+		اندازه stack از همون ابتدا اجرای برنامه مشخصه
+		
+		- OS kernel handles stack memory management automatically (memory allocation and deallocation are handled)
+		
+		- سرعت بالاتر از heap داره. چونکه خانه های حافظه stack پشت سر هم هستن و تنها کاری که باید انجام بشه اختصاص دادن reference عه.
+		- دیتا ذخیره شده در این بخش فقط زمانی که function مربوطه هنوز در call stack باشد (unfinished باشد) قابل دسترسی است
+		
+	2. heap segment
+		- flexible memory size during runtime
+		- dynamically allocated memory
+		- برای ذخیره data هایی که از ابتدا اندازه شان مشخص نیست و نیاز داریم که بتوانیم اندازه آن را کم یا زیاد کنیم
+		- با توجه به زبانی که از آن استفاده میکنیم نیاز است که قسمت های حافظه که در heap segment هستند توسط  دولوپر release بشن یا خود runtime زبان میاد با استفاده از garbage collector اینکار رو انجام میده. در صورتی که زبان gc نداشته باشه dealloc نکردن حافظه ها میتونه باعث memory leak بشه
+		
+		- سرعت پایینتر از stack داره. چون فرايند پیدا کردن memory frame و allocation و deallocation زمانبره
+		- دیتا ذخیره شده در این بخش تا زمانی که حافظه deallocate نشده و برنامه تمام نشده (gc حافظه ها را dealloc نکرده) قابل دسترسی است
+		
+		
+	3. code segment (text segment) 
+		- machine code for program's functions and methods
+		- وقتی که یک method قراره call بشه در اصل از اون بخشی از code segment که مربوط به اون method هست استفاده میشه
+
+	4. data segment (global segment)
+		- stores:
+			1. global variables
+			2. static variables
+		
+- stack frame: 
+- هربار که یک function call رخ دهد یک بلاک از memory برای ذخیره کردن اطلاعات آن function اختصاص میابد. این اطلاعات شامل:
+	1. function parameters
+	2. local variables
+	3. return address
+	
+- call stack:
+	- استکی که همه توابعی که unfinished هستن رو لیست میکنه و هروقت کار بالاترین function در stack تموم بشه اونو از stack پاک میکنه
+	- در اصل stack ای از stack frame های function های unfinished عه.
+	- هر thread یک call stack جداگانه داره
+
+
+- چه زمانی دیتا را در heap segment ذخیره کنیم
+	- اندازه دیتا متغیر باشد (dynamic)
+	- مدت زمان استفاده از آن دیتا مشخص نباشد (unpredictable lifespan)
+	- نیاز داریم که دیتا بین بخش های مختلف کد (مثلا function های مختلف) share شود و مختص function scope نباشد
+	
+	
+	Stack = fast, short-lived data
+
+	Heap = flexible, long-lived data
+
+-----------------------
+مثال هایی در ++C:
+```cplusplus
+int main(){
+	int val = 12;
+	int* ptr = new int;
+	
+	*ptr = val;
+	
+	return 0;
+}
+```
+ابتدا درون call stack نام تابع main اضافه میشود. سپس stack frame مربوط به main ساخته مبشود.
+متغیر محلی val درون stack segment ذخیره میشود.
+دستور new int قسمتی از heap segment را در نظر میگیرد. آدرس آن قسمت از حافظه درون متغیر محلی ptr (که داخل stack segment است) ریخته میشود
+خود ptr در اصل صرفا یه آدرس هستش و خودش داخل stack segment ذخیره میشه
+
+
+
+
+
+
+
+
+
+
+
+https://www.educative.io/blog/stack-vs-heap#Heap-memory-the-dynamic-storage
+

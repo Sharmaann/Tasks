@@ -1,0 +1,96 @@
+Value type:
+
+	- وقتی که یک متغیر از نوع value type را برابر با یک متغیر دیگر از همین type قرار میدهیم صرفا value های یکی کپی شده و در دیگری ذخیره میشود. پس تغییر در هر کدام از متغیر ها تاثیری بر دیگری ندارد و آن دو independant اند.
+	
+	
+	- معمولا در stack ذخیره میشن مگر اینکه بخشی از یک reference object دیگه باشن که اون موقع توی heap هستن
+	
+	
+	- With value types, each variable has its own copy of the data, and it's not possible for operations on one variable to affect the other
+	
+	- contains an instance of the type
+	
+	- struct یک value type است
+	
+	- در حالت عادی متغیر ها با تایپ value نمیتونن مقدار null بگیرن. برای اینکه این امکان رو فراهم کنیم از nullable value type استفاده میکنیم. nullable type صرفا متغیر رو در یک استراکت  wrap میکنه ->‌  پس value type عه. با توجه به پیاده سازی Nullable که در ادامه قرار داره قسمت null صرفا یک متغیر hasValue که boolean هست رو set میکنه و عملا reference type نیست
+	
+```csharp
+public struct Nullable<T> where T : struct
+{
+    private bool hasValue; // tracks if it actually has a value
+    private T value;       // holds the actual value if there is one
+
+    public bool HasValue => hasValue;
+    public T Value => value; // throws exception if HasValue is false
+}
+```
+	
+	
+```csharp
+Nullable <int> x = null;
+// or
+int? x = null;
+```
+	
+	
+
+Reference types:
+	
+	- 2 دیتا ذخیره میشه
+		۱. یک بخش از heap segment برای ذخیره داده در نظر  گرفته میشه 
+		۲. یک متغیر که حاوی reference به دیتا قسمت ۱ است در stack segment ساخته میشه
+	
+	- وقتی که یک متغیر از نوع reference type باشه یعنی که خود مقدار عبارت رو داخلش ذخیره نمیکنه بلکه یک reference (یا pointer) به آدرسی از حافظه (در heap) که داخل اون مقدار رو ذخیره کردیم هستش.
+	
+	- contains a reference to an instance of the type
+	
+	1. object
+		- در یک متغیر از نوع object میتوان هر نوع دیتایی قرار داد
+		- همه type ها در #C از object type نشات میگیرند
+		- اگر یک متغیر از نوع value type به یک متغیر از جنس object نسبت داده شود به این کار میگیم boxing. به برعکسش هم میگیم unboxing
+		
+		
+		
+```csharp
+int x = 5;
+object a = x; // boxing
+int y = (int)a; // unboxing
+```
+
+	2. delegate
+		- متغیری که میخواهد یک function یا method را درون خودش ذخیره کند بایستی از نوع delegate باشد و signature مشابهی با method ای که میخواد ذخیره کند داشته باشد.
+		
+		- مشابه function pointer در C و ++C هستش با این تفاوت که type safe هست.
+		یعنی اگه اون function ای که میخوایم به یک متغیر از نوع delegate رفرنسش بدیم signature مشابه ای با اون delegate نداشته باشه توی compile time بهمون error میده اما توی C, ++C ممکنه چیزی نگه و بعدا توی runtime به مشکل بخوریم
+		
+		استفاده ها:
+			- functional programming
+				- event-driven architecture and callbacks
+	
+	3. dynamic
+			
+		- مشابه object هستش ولی تفاوتش اینه که برخلاف بقیه انواع متغیر ها که static type هستن (یعنی type checking زمان compile رخ میده) برای متغیر های با نوع dynamic این اتفاق برعکسه و type checking زمان runtime رخ میده
+		
+		- نسبت به object که statically typed هست performance کمتری داره
+		
+		- هرجا استفادش کنیم یعنی:
+			- treat this variable’s type as unknown until runtime.
+		
+
+```csharp
+object obj = "Hello";
+Console.WriteLine(obj.Length); // ❌ Compile-time error (object has no 'Length')
+
+dynamic dyn = "Hello";
+Console.WriteLine(dyn.Length); // ✅ Works fine (resolved at runtime)
+```
+
+		- همچنین چک کردن اینکه آیا method هایی که داریم روی variable با تایپ dynamic استفاده میکنیم وجود دارن یا نه در زمان runtime انجام میشه
+		
+```csharp
+dynamic d = "ChatGPT";
+Console.WriteLine(d.ToUpper());  // Works fine
+Console.WriteLine(d.NoSuchMethod()); // Compiles fine, but ❌ runtime error
+```
+
+		- class و array هم reference type هستن
