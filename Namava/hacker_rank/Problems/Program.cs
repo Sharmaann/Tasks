@@ -10,7 +10,8 @@
             // SubarrayDivision2.Run();
             // XORString3.Run();
             // SalesByMatch.Run();
-            MigratoryBirds.Run();
+            //MigratoryBirds.Run();
+            MaxPerimeterTriangle.Run();
         }
     }
 }
