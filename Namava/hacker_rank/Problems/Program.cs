@@ -11,7 +11,8 @@
             // XORString3.Run();
             // SalesByMatch.Run();
             //MigratoryBirds.Run();
-            MaxPerimeterTriangle.Run();
+            //MaxPerimeterTriangle.Run();
+            DrawingBook.Run();
         }
     }
 }
