@@ -10,9 +10,10 @@
             // SubarrayDivision2.Run();
             // XORString3.Run();
             // SalesByMatch.Run();
-            //MigratoryBirds.Run();
-            //MaxPerimeterTriangle.Run();
-            DrawingBook.Run();
+            // MigratoryBirds.Run();
+            // MaxPerimeterTriangle.Run();
+            // DrawingBook.Run();
+            ZigzagSequence.Run();
         }
     }
 }
