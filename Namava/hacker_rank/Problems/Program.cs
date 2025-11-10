@@ -13,7 +13,8 @@
             // MigratoryBirds.Run();
             // MaxPerimeterTriangle.Run();
             // DrawingBook.Run();
-            ZigzagSequence.Run();
+            //ZigzagSequence.Run();
+            PickingNumbers.Run();
         }
     }
 }
