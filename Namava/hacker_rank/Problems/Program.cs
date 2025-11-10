@@ -20,7 +20,8 @@
             //ClosestNumbers.Run();
             //TowerBreakers.Run();
             //MinAbsoluteDifference.Run();
-            CaesarCipher.Run();
+            //CaesarCipher.Run();
+            SeparateTheNumbers.Run();
         }
     }
 }
