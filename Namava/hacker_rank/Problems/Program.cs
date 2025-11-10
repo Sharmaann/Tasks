@@ -18,7 +18,8 @@
             //LeftRotation.Run();
             //NumberLineJumps.Run();
             //ClosestNumbers.Run();
-            TowerBreakers.Run();
+            //TowerBreakers.Run();
+            MinAbsoluteDifference.Run();
         }
     }
 }
