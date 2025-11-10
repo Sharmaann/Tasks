@@ -14,7 +14,8 @@
             // MaxPerimeterTriangle.Run();
             // DrawingBook.Run();
             //ZigzagSequence.Run();
-            PickingNumbers.Run();
+            //PickingNumbers.Run();
+            LeftRotation.Run();
         }
     }
 }
