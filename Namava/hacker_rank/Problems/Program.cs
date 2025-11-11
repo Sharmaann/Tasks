@@ -21,7 +21,8 @@
             //TowerBreakers.Run();
             //MinAbsoluteDifference.Run();
             //CaesarCipher.Run();
-            SeparateTheNumbers.Run();
+            //SeparateTheNumbers.Run();
+            MaxMin.Run();
         }
     }
 }
