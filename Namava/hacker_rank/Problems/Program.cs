@@ -23,7 +23,8 @@
             //CaesarCipher.Run();
             //SeparateTheNumbers.Run();
             //MaxMin.Run();
-            StrongPassword.Run();
+            //StrongPassword.Run();
+            DynamicArray.Run();
         }
     }
 }
