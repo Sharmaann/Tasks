@@ -22,7 +22,8 @@
             //MinAbsoluteDifference.Run();
             //CaesarCipher.Run();
             //SeparateTheNumbers.Run();
-            MaxMin.Run();
+            //MaxMin.Run();
+            StrongPassword.Run();
         }
     }
 }
