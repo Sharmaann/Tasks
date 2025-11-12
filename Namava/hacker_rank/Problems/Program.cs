@@ -24,7 +24,8 @@
             //SeparateTheNumbers.Run();
             //MaxMin.Run();
             //StrongPassword.Run();
-            DynamicArray.Run();
+            //DynamicArray.Run();
+            SmartNumber.Run();
         }
     }
 }
