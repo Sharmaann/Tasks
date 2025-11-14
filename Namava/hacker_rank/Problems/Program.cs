@@ -6,7 +6,7 @@
 
         static void Main(string [] args)
         {
-            GamingArray1.Run();
+            SumVsXor.Run();
         }
     }
 } 
