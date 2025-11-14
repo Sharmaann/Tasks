@@ -6,7 +6,7 @@
 
         static void Main(string [] args)
         {
-            SherlockAndArray.Run();
+            GamingArray1.Run();
         }
     }
 } 
