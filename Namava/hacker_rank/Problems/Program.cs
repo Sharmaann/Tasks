@@ -6,7 +6,7 @@
 
         static void Main(string [] args)
         {
-            MagicSquare.Run();
+            MisereNim.Run();
         }
     }
 } 
