@@ -6,7 +6,7 @@
 
         static void Main(string [] args)
         {
-            CounterGame.Run();
+            RecursiveDigitSum.Run();
         }
     }
 } 
