@@ -10,14 +10,7 @@ namespace Problems
 
         static void Main(string[] args)
         {
-            ReverseLinkedList.Run();
-            //var p1 = new Person();
-            //p1.SetName("ali");
-
-            //string name = p1.GetName();
-            //Console.WriteLine(name);
-
-            //Console.WriteLine(p1.name);
+            ReverseDoublyLinkedList.Run();
         }
     }
 }
