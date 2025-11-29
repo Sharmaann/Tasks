@@ -6,7 +6,7 @@ namespace Problems
 
         static void Main(string[] args)
         {
-            ClimbingLeaderboard.Run();
+            InsertNodeLinkedList.Run();
         }
     }
 }
