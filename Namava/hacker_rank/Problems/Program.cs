@@ -1,7 +1,3 @@
-//using ReverseLinkedList
-
-using Learn;
-
 namespace Problems
 {
 
@@ -10,7 +6,7 @@ namespace Problems
 
         static void Main(string[] args)
         {
-            ReverseDoublyLinkedList.Run();
+            ClimbingLeaderboard.Run();
         }
     }
 }
