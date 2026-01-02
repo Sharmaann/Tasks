@@ -6,7 +6,7 @@
 
         static void Main(string[] args)
         {
-            LegoBlocks.Run();
+            WeightedUniformString.Run();
         }
     }
 }
